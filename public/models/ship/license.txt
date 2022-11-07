@@ -1,0 +1,11 @@
+Model Information:
+* title:	SHIP Revenge 1577
+* source:	https://sketchfab.com/3d-models/ship-revenge-1577-dc15f49a9c27437d8e4d78e934e56749
+* author:	Kapitan_ulitka (https://sketchfab.com/Kapitan_ulitka)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "SHIP Revenge 1577" (https://sketchfab.com/3d-models/ship-revenge-1577-dc15f49a9c27437d8e4d78e934e56749) by Kapitan_ulitka (https://sketchfab.com/Kapitan_ulitka) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -12,8 +12,15 @@ module.exports = {
     ecmaVersion: 2020,
   },
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'brace-style': ['error', 'allman', {
+      allowSingleLine: true,
+    }],
+    semi: [2, 'never'],
+    'linebreak-style': ['error', 'unix'],
+    'import/extensions': 0,
+    'import/no-unresolved': 0,
+    'import/no-extraneous-dependencies': [1, { devDependencies: false, optionalDependencies: false, peerDependencies: false }],
   },
   overrides: [
     {
@@ -26,4 +33,4 @@ module.exports = {
       },
     },
   ],
-};
+}
