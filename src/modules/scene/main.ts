@@ -20,12 +20,16 @@ window.addEventListener('DOMContentLoaded', () =>
   container.appendChild(renderer.domElement)
 
   const scene = new THREE.Scene()
-  const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000)
+  const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 5000)
   const orbit = new OrbitControls(camera, renderer.domElement)
   const light = new THREE.AmbientLight(0x404040)
   scene.add(light)
 
   camera.position.set(0, 70, 50)
+  orbit.maxDistance = 1000
+  orbit.minAzimuthAngle = 0
+  orbit.maxPolarAngle = 1.4708
+
   orbit.update()
 
   renderer.outputEncoding = THREE.sRGBEncoding
@@ -46,12 +50,6 @@ window.addEventListener('DOMContentLoaded', () =>
     texture.mapping = THREE.EquirectangularReflectionMapping
     scene.background = texture
     scene.environment = texture
-
-    // const sphere = new THREE.Mesh(
-    //   new SphereGeometry(1, 50, 50),
-    //   new MeshStandardMaterial({ roughness: 0, metalness: 0.5 }),
-    // )
-    // scene.add(sphere)
   })
 
   // loader model
@@ -66,28 +64,30 @@ window.addEventListener('DOMContentLoaded', () =>
     // called when the resource is loaded
     (gltf) =>
     {
-      gltf.scene.position.set(0, 0, 0)
-      gltf.scene.rotateX(-0.65)
+      gltf.scene.position.set(0, 2, 0)
+      // gltf.scene.rotateX(-Math.PI / 2)
       scene.add(gltf.scene)
     },
   )
 
-  const waterGeo = new THREE.PlaneGeometry(1000, 1000)
-  waterGeo.rotateX(180)
+  const waterGeo = new THREE.PlaneGeometry(5000, 5000)
+  waterGeo.rotateX(-Math.PI / 2)
+
   const water = new Water(waterGeo, {
     color: 0xccc999,
-    scale: 1,
+    scale: 5,
     flowDirection: new THREE.Vector2(0.5, -0.5),
     textureWidth: 256,
     textureHeight: 256,
   })
+
+  water.material.transparent = true
+  water.material.opacity = 0.5
   scene.add(water)
 
-  // end
   function animate()
   {
     renderer.render(scene, camera)
-    // requestAnimationFrame(animate)
   }
 
   renderer.setAnimationLoop(animate)
